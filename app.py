@@ -56,14 +56,14 @@ def mongodb_home():
     title = "Using APIs"
     return render_template('/pages/database_home.html', title = title)
 
-@app.route('/MongoDB/api/v1.0/student', methods=['GET'])
+@app.route('/api/v1.0/student', methods=['GET'])
 def student_api():
     students = list(db.students.find())
     for student in students:
         student['_id'] = str(student['_id'])
     return jsonify(students)
 
-@app.route('/API/v1.0/testmonial', methods=['GET'])
+@app.route('/api/v1.0/testmonial', methods=['GET'])
 def testimonial_api():
     testimonials = list(db.feedbacks.find())
     for testimonial in testimonials:
@@ -83,7 +83,7 @@ def add_student():
     if request.method == 'POST':
         name = request.form['name']
         age = request.form['age']
-        skills = request.form['skills'].split(', ')
+        skills = request.form['skills'].split(',')
         created_at = datetime.now()
         student = {
             'name':name,
@@ -92,8 +92,32 @@ def add_student():
             'created_at':created_at,
         }
         result = students_tbl.insert_one(student)
-        redirect(url_for('student_database', student_id=str(result.inserted_id)))
+        redirect(url_for('/student_database', student_id=str(result.inserted_id)))
     return render_template('/pages/add_new_student.html', title = title)
+
+@app.route('/delete_student/<student_id>', methods = ['GET', 'DELETE'])
+def delete_student(student_id):
+    students_tbl.find_one_and_delete({'_id':ObjectId(student_id)})
+    return redirect(url_for('student_database'))
+
+@app.route('/update_student/<student_id>', methods = ['GET', 'POST'])
+def update_student(student_id):
+    title = "Update Student Details"
+    student = students_tbl.find_one({'_id':ObjectId(student_id)})
+    if request.method=='POST':
+        name = request.form['name']
+        age = request.form['name']
+        skills = request.form['skills'].strip().split(', ')
+        students_tbl.update_one({
+            '_id':ObjectId(student_id)},
+            {
+                '$set':{
+                'name':name,
+                'age':age,
+                'skills':skills,
+            }})
+        return redirect(url_for('student_database'))
+    return render_template('/pages/update_student.html', title = title, student = student)
 
 
 if __name__ == '__main__':

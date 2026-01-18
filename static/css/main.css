@@ -233,6 +233,7 @@ main {
   font-size: 1rem;
   border-radius: 10px;
   padding: 10px;
+  width: 100px;
 }
 
 .add_student_button {
@@ -281,5 +282,49 @@ main {
 }
 
 .add_student {
+  text-align: center;
+}
+
+.edit_student_button {
+  display: flex;
+  justify-content: center;
+}
+
+.edit_student_button button {
+  font-size: 1.5rem;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.edit_student_form {
+  display: flex;
+  justify-content: center;
+}
+
+.edit_student_form form {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.edit_student_form form > div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.edit_student_form form textarea {
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 5px;
+}
+
+.edit_student_form form input {
+  font-size: 1.5rem;
+  border-radius: 5px;
+}
+
+.edit_student {
   text-align: center;
 }

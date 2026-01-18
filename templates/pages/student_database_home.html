@@ -40,8 +40,10 @@
       </div>
       </div>
       <div class="student_buttons">
-        <button>Edit</button>
-        <button>Delete</button>
+        <a href="{{url_for('update_student', student_id=student._id)}}">
+        <button>Edit</button></a>
+        <a href="{{url_for('delete_student', student_id=student._id)}}">
+        <button onclick = "alert('Student Deleted!')">Delete</button></a>
       </div>
     </div>
     <br />

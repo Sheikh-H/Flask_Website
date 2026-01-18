@@ -1,0 +1,37 @@
+{% extends 'layout.html' %} {% block content %}
+<div class="edit_student">
+  <h1>Edit Student Form</h1>
+  <br />
+  <p>Use the form below to edit a student from the database.</p>
+</div>
+<br />
+<div>{% include 'partials/database_nav.html' %}</div>
+<br />
+<div class="edit_student_form">
+  <form method="POST">
+    <div>
+      <label for="name">Student Name: </label>
+      <textarea id="name" name="name" cols="50" rows="1">
+{{student.name}}</textarea
+      >
+    </div>
+    <div>
+      <label for="age">Student Age: </label>
+      <textarea id="name" name="age" cols="50" rows="1">
+{{student.age}}</textarea
+      >
+    </div>
+    <div>
+      <label for="skills">Student Skills: </label>
+      <textarea id="skills" name="skills" rows="5" cols="50">
+      {% for skill in student.skills %} {{skill}}, {% endfor %}</textarea
+      >
+    </div>
+    <input
+      type="submit"
+      onclick="alert('Student Info Updated!')"
+      value="submit"
+    />
+  </form>
+</div>
+{% endblock %}
