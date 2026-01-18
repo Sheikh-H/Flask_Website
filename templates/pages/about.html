@@ -1,0 +1,36 @@
+{% extends 'layout.html' %} {% block content %}
+<div class="about_main">
+  <h1>About Project</h1>
+  <img src="/static/img/male2.png" alt="icon" />
+  <h2>What This Project Includes</h2>
+  <br />
+  <p>
+    One of the core features is a <strong>Text Analyzer tool</strong>. Users can
+    enter a phrase or passage, and the application analyzes the text to provide
+    useful insights, including word count, word frequency, the most frequently
+    used word, and its percentage ratio. This feature is implemented using a
+    simple HTML form and server-side processing.<br /><br />The project also
+    integrates a <strong>MongoDB NoSQL database</strong> using a free-tier
+    setup. Through this integration, the website can interact directly with the
+    database, allowing data to be added, updated, and deleted via backend
+    functions. In addition, the site includes a
+    <strong>review system</strong> where visitors can submit feedback.<br /><br />Each
+    review is classified as positive or negative based on the emoji provided.
+    This classification dynamically affects how the review is displayed through
+    CSS styling and contributes to a dashboard that summarizes review activity,
+    including the number of positive and negative submissions.
+  </p>
+  <br />
+  <h2>Why I Built This</h2>
+  <br />
+  <p>
+    This project was designed as a practical learning exercise to apply
+    <strong>Python</strong>, <strong>Flask</strong>,
+    <strong>database integration</strong>, and basic
+    <strong>data analysis</strong> in a real-world context. It reflects my
+    progress as a developer and my focus on writing clear, functional, and
+    scalable code. Thanks for taking the time to explore the project. I hope you
+    find it useful and informative.
+  </p>
+</div>
+{% endblock %}

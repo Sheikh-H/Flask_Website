@@ -1,0 +1,70 @@
+{% extends 'layout.html' %} {% block content %}
+<div class="text_analyser_main">
+  <h1>Text Analyser Function</h1>
+  <br />
+  <p>
+    Enter a piece of text into the form box below. This will then use a Python
+    function to go on ahead and create a list of words with all the words inside
+    the passage. It will then use some functions to derive different information
+    like total word count, lexical word density, frequent words, and etc.
+  </p>
+  <br />
+  <p>
+    I had to use Google to tell me what 'Lexical Density' meant. Lexical density
+    is the calculation of unique words in the text against the total words in
+    the text. The term 'lexical' refers to the words used in a text, and lexical
+    density measures the variety of those words compared to the total word
+    count.
+  </p>
+  <br />
+  <p>
+    A <strong>High Lexical Density</strong> indicates the use of a wide variety
+    of words and a <strong>Low Lexical Density</strong> indicates the use of
+    repeated words or phrases. The more vocabulary you know, the more you
+    improve your ability to write with a higher lexical density.
+  </p>
+  <div class="form_div">
+    <form method="POST">
+      <br />
+      <textarea name="text" placeholder="Enter text" rows="5"></textarea><br />
+      <button type="submit">Submit</button>
+    </form>
+    <br />
+  </div>
+  {% if result %}
+  <div class="analyser_result">
+    <h2>Text Analysis</h2>
+    {% for key, val in result.items() %}
+    <div class="analyser_result">
+      {% if key == 'Lexical Density' %}
+      <div>
+        <p><strong>{{key}}:</strong></p>
+        <p>{{val}}%</p>
+      </div>
+      {% else %}
+      <div>
+        <p><strong>{{key}}:</strong></p>
+        <p>{{val}}</p>
+      </div>
+      {% endif %}
+    </div>
+    {% endfor %}
+    <div class="analyser_result">
+      <h2>Total Words</h2>
+      <table>
+        <tr>
+          <th>Word List</th>
+          <th>Occurrence</th>
+        </tr>
+        {% for key, val in word_freq.items() %}
+        <tr>
+          <td>"{{key}}"</td>
+          <td>{{val}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}
