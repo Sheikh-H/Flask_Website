@@ -1,0 +1,44 @@
+{% extends 'layout.html' %} {% block content %}
+<div class="add_student">
+  <h1>Add a New Student</h1>
+  <br />
+  <p>
+    Use the form below to add a new student to the database through the API.
+  </p>
+</div>
+<br />
+<div>{% include 'partials/database_nav.html' %}</div>
+<br />
+<div class="add_student_form">
+  <form method="POST">
+    <div>
+      <label for="name">Student Name: </label>
+      <textarea
+        placeholder="Enter Student Name"
+        name="name"
+        cols="50"
+        rows="1"
+      ></textarea>
+    </div>
+    <div>
+      <label for="age">Student Age: </label>
+      <textarea
+        placeholder="Enter Student age (numerical values only)"
+        name="age"
+        cols="50"
+        rows="1"
+      ></textarea>
+    </div>
+    <div>
+      <label for="skills">Student Skills: </label>
+      <textarea
+        placeholder="Enter Student Skills - separate each skills using a comma ','."
+        name="skills"
+        rows="5"
+        cols="50"
+      ></textarea>
+    </div>
+    <input type="submit" onclick="alert('New Student Added!')" value="submit" />
+  </form>
+</div>
+{% endblock %}
