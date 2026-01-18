@@ -57,19 +57,30 @@ def mongodb_home():
     return render_template('/pages/database_home.html', title = title)
 
 @app.route('/api/v1.0/student', methods=['GET'])
-def student_api():
-    students = list(db.students.find())
+def students_api():
+    students = list(students_tbl.find())
     for student in students:
         student['_id'] = str(student['_id'])
     return jsonify(students)
 
-@app.route('/api/v1.0/testmonial', methods=['GET'])
-def testimonial_api():
-    testimonials = list(db.feedbacks.find())
+@app.route('/api/v1.0/student/<student_id>', methods=['GET'])
+def student_api(student_id):
+    student = list(students_tbl.find_one({'_id':ObjectId(student_id)}))
+    student['_id'] = str(student['_id'])
+    return jsonify(student)
+
+@app.route('/api/v1.0/testmonials', methods=['GET'])
+def testimonials_api():
+    testimonials = list(feedbacks_tbl.find())
     for testimonial in testimonials:
         testimonial['_id'] = str(testimonial['_id'])
     return jsonify(testimonials)
 
+@app.route('/api/v1.0/student/<testimonial_id>', methods=['GET'])
+def testimonial_api(testimonial_id):
+    testimonial = list(feedbacks_tbl.find_one({'_id':ObjectId(testimonial_id)}))
+    testimonial['_id'] = str(testimonial['_id'])
+    return jsonify(testimonial)
 
 @app.route('/student_database', methods = ['GET', 'POST'])
 def student_database():
