@@ -328,3 +328,106 @@ main {
 .edit_student {
   text-align: center;
 }
+
+.testimonial_home h1 {
+  text-align: center;
+}
+
+.green {
+  width: 100%;
+  border-radius: 10px 10px 0px 0px;
+  box-shadow: 1px 1px 10px green;
+}
+
+.grey {
+  width: 100%;
+  border-radius: 10px 10px 0px 0px;
+  box-shadow: 0px 0px 10px grey;
+}
+
+.red {
+  width: 100%;
+  border-radius: 10px 10px 0px 0px;
+  box-shadow: 0px 0px 10px red;
+}
+
+.testimonial_details {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.testimonial_tags {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  background-color: rgba(211, 211, 211, 0.5);
+}
+
+.testimonial_tags > div {
+  display: flex;
+}
+
+.testimonial_tags p {
+  margin-right: 5px;
+}
+
+.testimonial_buttons {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  gap: 20px;
+}
+
+.testimonial_buttons button {
+  width: 200px;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.add_review_form {
+  display: flex;
+  justify-content: center;
+}
+
+.add_review_form form {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.add_review_form form > div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.add_review_form form textarea {
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 5px;
+}
+
+.add_review_form form input {
+  font-size: 1.5rem;
+  border-radius: 5px;
+}
+
+.add_review {
+  text-align: center;
+}
+
+.add_review_form form select {
+  font-size: 1.5rem;
+  margin: auto;
+}
+
+.emoji_list {
+  text-align: center;
+  padding: 10px;
+}

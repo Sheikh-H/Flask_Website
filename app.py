@@ -9,8 +9,8 @@ from python_functions.text_analyser_functions import *
 
 load_dotenv()
 
-#URI = os.environ["MONGO_URI"].strip()
-URI = os.environ.get("MONGO_URI")
+URI = os.environ["MONGO_URI"].strip()
+#URI = os.environ.get("MONGO_URI")
 
 
 client = pymongo.MongoClient(URI, tls=True, tlsCAFile=certifi.where())
@@ -129,6 +129,43 @@ def update_student(student_id):
             }})
         return redirect(url_for('student_database'))
     return render_template('/pages/update_student.html', title = title, student = student)
+
+@app.route('/testimonial_database', methods = ['GET', 'POST'])
+def testimonial_database():
+    title = "Tesimonial Database"
+    testimonials = db.feedbacks.find({},{'_id':0,'name':1, 'feedback':1, 'created_at':1, 'gender':1, 'created_at':1, 'color':1})
+    return render_template('/pages/testimonial_database_home.html', title = title, testimonials = testimonials)
+
+@app.route('/leave_a_review', methods=['GET','POST'])
+def leave_a_review():
+    title = "Leave a review"
+    good_emojis = ["😊", "😄", "😁", "👍", "🌟", "🥰", "🤩", "🙌", "💖", "🎉"]
+    bad_emojis = ["😞", "😠", "😡", "👎", "😢", "😭", "💔", "😩", "😖", "🤯"]
+    if request.method=='POST':
+        name = request.form['name']
+        feedback = request.form['feedback']
+        gender = request.form['gender']
+        created_at = datetime.now()
+        for word in feedback.split():
+            if word in good_emojis:
+                color = 'green'
+            elif word in bad_emojis:
+                color = 'red'
+            else:
+                color = 'grey'
+        result = {
+            'name':name, 
+            'gender': gender,
+            'feedback':feedback,
+            'created_at':created_at,
+            'color':color
+        }
+        feedbacks_tbl.insert_one(result)
+        return redirect(url_for('testimonial_database'))
+    return render_template('/pages/leave_a_review.html', title=title)
+
+
+
 
 
 if __name__ == '__main__':

@@ -1,0 +1,46 @@
+{% extends 'layout.html' %} {% block content %}
+<div class="testimonial_home">
+  <h1>Testimonial Database</h1>
+  <br />
+  <p>
+    So this part of the assignment, I took to using more creativity as I wanted
+    the objects to load using custom CSS. This was to get the database to store
+    data and the website to display data in different styles depending on the
+    information stored.
+  </p>
+</div>
+<br />
+<div>{% include 'partials/database_nav.html' %}</div>
+<div class="testimonial_buttons">
+  <a href="{{url_for('leave_a_review')}}"><button>Leave a Review</button></a>
+  <a href="#"><button>Statistics</button></a>
+</div>
+<div>
+  {% for testimonial in testimonials %}
+  <br />
+  <div class="{{testimonial.color}}">
+    <div class="testimonial_details">
+      {% if testimonial.gender == 'male' %}
+      <img src="/static/img/male.png" alt="male icon" style="width: 150px" />
+      {% else %}
+      <img src="/static/img/female.png" alt="male icon" style="width: 150px" />
+      {% endif %}<br />
+      <p>"{{testimonial.feedback}}"</p>
+    </div>
+    <div class="testimonial_tags">
+      <div>
+        <p>Left by:</p>
+        <p>{{testimonial.name}}</p>
+      </div>
+      <div>
+        <p>At:</p>
+        <p>{{testimonial.created_at}}</p>
+      </div>
+    </div>
+  </div>
+  <br />
+  {% endfor %}
+</div>
+<br />
+
+{% endblock %}
