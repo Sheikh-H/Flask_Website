@@ -78,7 +78,7 @@ def students_api():
         student['_id'] = str(student['_id'])
     return jsonify(students)
 
-@app.route('/api/v1.0/testmonials', methods=['GET'])
+@app.route('/api/v1.0/testimonials', methods=['GET'])
 def testimonials_api():
     testimonials = list(feedbacks_tbl.find())
     for testimonial in testimonials:
@@ -135,7 +135,7 @@ def update_student(student_id):
 
 @app.route('/testimonial_database', methods = ['GET', 'POST'])
 def testimonial_database():
-    title = "Tesimonial Database"
+    title = "Testimonial Database"
     testimonials = db.feedbacks.find({},{'_id':0,'name':1, 'feedback':1, 'created_at':1, 'gender':1, 'created_at':1, 'colour':1})
     return render_template('/pages/testimonial_database_home.html', title = title, testimonials = testimonials)
 
