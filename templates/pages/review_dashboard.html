@@ -3,10 +3,10 @@
   <h1>Review Dashboard</h1>
   <br />
   <p>
-    So this part of the assignment, I took to using more creativity as I wanted
-    the objects to load using custom CSS. This was to get the database to store
-    data and the website to display data in different styles depending on the
-    information stored.
+    This is the review dashboard where the feedback statistics are displayed
+    using the MatPlotLib module in Python. On each load, it will generate new
+    charts based on the current database data, save the file as an image, then
+    load the page. This is why it takes a few seconds to load.
   </p>
 </div>
 <br />
@@ -17,6 +17,10 @@
     ><button>Review Dashboard</button></a
   >
 </div>
-<div></div>
-
+<br />
+<div class="review_charts">
+  <img src="/static/img/pie_chart.png" alt="Total reviews pie chart" />
+  <img src="/static/img/graph_chart.png" alt="graph chart" />
+</div>
+<br />
 {% endblock %}

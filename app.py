@@ -6,6 +6,7 @@ from datetime import *
 from dotenv import load_dotenv
 import certifi
 from python_functions.text_analyser_functions import *
+from python_functions.review_dashboard_function import *
 
 load_dotenv()
 
@@ -165,6 +166,9 @@ def leave_a_review():
 @app.route('/review_dashboard')
 def review_dashboard():
     title = "Review Dashboard"
+    data = list(feedbacks_tbl.find({},{'_id':0,'colour':1}))
+    pie_chart(stats(data))
+    graph(stats(data))
     return render_template('/pages/review_dashboard.html', title = title)
 
 if __name__ == '__main__':

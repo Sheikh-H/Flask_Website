@@ -3,17 +3,28 @@
   <h1>Student Database</h1>
   <br />
   <p>
-    Here the website sends a 'GET' request on load to bring back all the data
-    from the database and display it on the page using CSS styling. When you
-    click on 'edit' or 'delete' it then performs a 'POST' request to the
-    database and the relevant table to update it by performing the selected
-    action.
+    The is the student database I created to replicate a system where you can
+    insert, remove, append, and retrieve information from an online data source.
+    Here you'll find a list of 'students' that are in the 'students table'
+    inside my MongoDB database. Using the forms you can add a new student, edit
+    a student, and delete a student. <br /><br />If you view the API for each of
+    the tables, you'll see a JSON format of all the information inside each
+    table which shows how the data is being retrieved to my website. I then use
+    CSS styling and Jinja2 templating to arrange and display it the way I
+    desired.<br /><br />If you would like to get a better understand of API
+    usage, you can copy the ID field of a student below and paste this at the
+    end of the url after clicking on the Students API and this will give you the
+    selected students' details.
   </p>
+  <br />
+  <p>Example: "http://www.mywebsite.com/api/v1.0/student/[student ID]"</p>
 </div>
 <br />
 <div>{% include 'partials/database_nav.html' %}</div>
 <br />
-<div class="add_student_button" ><a href = "{{url_for('add_student')}}"><button>Add New Student</button></a></div>
+<div class="add_student_button">
+  <a href="{{url_for('add_student')}}"><button>Add New Student</button></a>
+</div>
 <br />
 <div>
   {% for student in students %}
@@ -31,23 +42,24 @@
       </div>
       <div>
         <p>
-          <strong>Student Skills</strong>: {% for skill in student.skills
+          <strong>Student Skills</strong>: <br />{% for skill in student.skills
           %}{{skill.upper()}}, {% endfor %}
         </p>
       </div>
       <div>
         <p><strong>Created At</strong>: {{student.created_at}}</p>
       </div>
-      </div>
-      <div class="student_buttons">
-        <a href="{{url_for('update_student', student_id=student._id)}}">
-        <button>Edit</button></a>
-        <a href="{{url_for('delete_student', student_id=student._id)}}">
-        <button onclick = "alert('Student Deleted!')">Delete</button></a>
-      </div>
     </div>
-    <br />
-    {% endfor %}
+    <div class="student_buttons">
+      <a href="{{url_for('update_student', student_id=student._id)}}">
+        <button>Edit</button></a
+      >
+      <a href="{{url_for('delete_student', student_id=student._id)}}">
+        <button onclick="alert('Student Deleted!')">Delete</button></a
+      >
+    </div>
   </div>
-  {% endblock %}
+  <br />
+  {% endfor %}
 </div>
+{% endblock %}

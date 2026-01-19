@@ -1,11 +1,7 @@
-import numpy as np
-import statistics as stat
-import pandas as pd
 from matplotlib import *
 import matplotlib.pyplot as plt
 import pymongo
-import os
-import datetime
+
 
 URI = "mongodb+srv://sheikhhussain:Password123@cluster0.dzj1bel.mongodb.net/flask_project?retryWrites=true&w=majority"
 
@@ -13,7 +9,7 @@ client = pymongo.MongoClient(URI)
 db = client['flask_project']
 students_tbl = db.students
 feedbacks_tbl = db.feedbacks
-data = feedbacks_tbl.find({},{'_id':0,'colour':1})
+data = list(feedbacks_tbl.find({},{'_id':0,'colour':1}))
 
 def stats(table):
     dct = {}
@@ -30,16 +26,28 @@ def stats(table):
     return dct
 
 def pie_chart(data):
-    total = sum(data.values())
     labels = ['Good', 'Bad', 'Neutral']
     colours = ['green', 'red', 'grey']
     sizes = [data['good'], data['bad'], data['neutral']]
-    plt.figure(5,5)
+    plt.figure(figsize=(4,4))
     plt.pie(
         sizes,
         labels = labels,
-        colours = colours,
-        autopct='%1.1f%%',
-        startangle=90
+        colors = colours,
+        autopct='%1.2f%%',
+        startangle=90,
+        pctdistance=0.4,
+        labeldistance=0.6
     )
-pie_chart(stats(data))
+    plt.axis('equal')
+    plt.savefig('./static/img/pie_chart.png', transparent = True)
+    plt.close()
+
+def graph(data):
+    labels = ['Good', 'Bad', 'Neutral']
+    colours = ['green', 'red', 'grey']
+    values = [data['good'], data['bad'], data['neutral']]
+    plt.bar(labels, values, color = colours)
+    plt.savefig('./static/img/graph_chart.png', transparent = True, bbox_inches='tight')
+    plt.close()
+    
