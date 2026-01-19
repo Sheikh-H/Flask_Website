@@ -1,9 +1,12 @@
 from matplotlib import *
 import matplotlib.pyplot as plt
 import pymongo
+import os
+from  dotenv import *
 
+load_dotenv()
 
-URI = "mongodb+srv://sheikhhussain:Password123@cluster0.dzj1bel.mongodb.net/flask_project?retryWrites=true&w=majority"
+URI = os.environ["MONGO_URI"].strip()
 
 client = pymongo.MongoClient(URI)
 db = client['flask_project']
