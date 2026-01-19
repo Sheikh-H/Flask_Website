@@ -10,8 +10,6 @@ from python_functions.text_analyser_functions import *
 load_dotenv()
 
 URI = os.environ["MONGO_URI"].strip()
-#URI = os.environ.get("MONGO_URI")
-
 
 client = pymongo.MongoClient(URI, tls=True, tlsCAFile=certifi.where())
 db = client['flask_project']
@@ -133,7 +131,7 @@ def update_student(student_id):
 @app.route('/testimonial_database', methods = ['GET', 'POST'])
 def testimonial_database():
     title = "Tesimonial Database"
-    testimonials = db.feedbacks.find({},{'_id':0,'name':1, 'feedback':1, 'created_at':1, 'gender':1, 'created_at':1, 'color':1})
+    testimonials = db.feedbacks.find({},{'_id':0,'name':1, 'feedback':1, 'created_at':1, 'gender':1, 'created_at':1, 'colour':1})
     return render_template('/pages/testimonial_database_home.html', title = title, testimonials = testimonials)
 
 @app.route('/leave_a_review', methods=['GET','POST'])
@@ -148,25 +146,26 @@ def leave_a_review():
         created_at = datetime.now()
         for word in feedback.split():
             if word in good_emojis:
-                color = 'green'
+                colour = 'green'
             elif word in bad_emojis:
-                color = 'red'
+                colour = 'red'
             else:
-                color = 'grey'
+                colour = 'grey'
         result = {
             'name':name, 
             'gender': gender,
             'feedback':feedback,
             'created_at':created_at,
-            'color':color
+            'colour':colour
         }
         feedbacks_tbl.insert_one(result)
         return redirect(url_for('testimonial_database'))
     return render_template('/pages/leave_a_review.html', title=title)
 
-
-
-
+@app.route('/review_dashboard')
+def review_dashboard():
+    title = "Review Dashboard"
+    return render_template('/pages/review_dashboard.html', title = title)
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))

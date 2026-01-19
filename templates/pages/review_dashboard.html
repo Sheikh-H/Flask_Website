@@ -1,0 +1,22 @@
+{% extends 'layout.html' %} {% block content %}
+<div class="review_dashboard">
+  <h1>Review Dashboard</h1>
+  <br />
+  <p>
+    So this part of the assignment, I took to using more creativity as I wanted
+    the objects to load using custom CSS. This was to get the database to store
+    data and the website to display data in different styles depending on the
+    information stored.
+  </p>
+</div>
+<br />
+<div>{% include 'partials/database_nav.html' %}</div>
+<div class="testimonial_buttons">
+  <a href="{{url_for('leave_a_review')}}"><button>Leave a Review</button></a>
+  <a href="{{url_for('review_dashboard')}}"
+    ><button>Review Dashboard</button></a
+  >
+</div>
+<div></div>
+
+{% endblock %}

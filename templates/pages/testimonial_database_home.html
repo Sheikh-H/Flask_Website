@@ -13,12 +13,14 @@
 <div>{% include 'partials/database_nav.html' %}</div>
 <div class="testimonial_buttons">
   <a href="{{url_for('leave_a_review')}}"><button>Leave a Review</button></a>
-  <a href="#"><button>Statistics</button></a>
+  <a href="{{url_for('review_dashboard')}}"
+    ><button>Review Dashboard</button></a
+  >
 </div>
 <div>
   {% for testimonial in testimonials %}
   <br />
-  <div class="{{testimonial.color}}">
+  <div class="{{testimonial.colour}}">
     <div class="testimonial_details">
       {% if testimonial.gender == 'male' %}
       <img src="/static/img/male.png" alt="male icon" style="width: 150px" />

@@ -431,3 +431,7 @@ main {
   text-align: center;
   padding: 10px;
 }
+
+.review_dashboard h1 {
+  text-align: center;
+}
