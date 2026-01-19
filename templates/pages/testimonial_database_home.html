@@ -3,15 +3,22 @@
   <h1>Testimonial Database</h1>
   <br />
   <p>
-    This is a collection of all the 'reviews' left on my website. You can enter
-    your own review or use the API url in a similar format to gain the same
-    result as with the student table API function. Each result is retrieved from
-    the database and then I use Python to calculate different information to
-    produce different results. <br /><br />
-    I used Jinja2 templating to generate the color of each review depending on
-    what emoji has been inserted in their feedback and also to figure out which
-    image to use depending on whether the testimonial was left by a male or
-    female.
+    This collection of data was created to illustrate the applications of
+    <strong>custom CSS styling</strong> for
+    <strong>specific instances</strong> of items in the data source. On this
+    page, each testimonial left by a person includes two pieces of data that
+    Jinja2 Templating uses Python functions on to calibrate <em>how</em> the
+    information is displayed. Namely, they are the <em>gender</em> and
+    <em>colour</em> fields.<br /><br />
+    The gender field is populated manually by the user, but the colour field
+    uses a similar function to the text analyser to gather whether the feedback
+    is <strong>positive</strong>, <strong>negative</strong>, or
+    <strong>neutral</strong> and assign a relevant colour to the testimonial.
+    This value is then used to load a specific CSS style declared in the CSS
+    file for each iteration of a testimonial, which changes how it’s
+    displayed.<br /><br />
+    For this function, I used emojis as the classifier for each testimonial.<br /><br />
+    (Right now, including two emojis breaks the function.)
   </p>
 </div>
 <br />

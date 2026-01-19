@@ -3,21 +3,26 @@
   <h1>Student Database</h1>
   <br />
   <p>
-    The is the student database I created to replicate a system where you can
-    insert, remove, append, and retrieve information from an online data source.
-    Here you'll find a list of 'students' that are in the 'students table'
-    inside my MongoDB database. Using the forms you can add a new student, edit
-    a student, and delete a student. <br /><br />If you view the API for each of
-    the tables, you'll see a JSON format of all the information inside each
-    table which shows how the data is being retrieved to my website. I then use
-    CSS styling and Jinja2 templating to arrange and display it the way I
-    desired.<br /><br />If you would like to get a better understand of API
-    usage, you can copy the ID field of a student below and paste this at the
-    end of the url after clicking on the Students API and this will give you the
-    selected students' details.
+    This database is packed with many functions and features such as adding a
+    student, deleting a student, updating a students details, and using the API
+    to have a look at the original data in JSON format. The Python functions
+    used to build this part of the site include some features like applying text
+    formatting to the name entered for each student, separating each skill
+    entered for a student using a comma, and inserting it into a list of items
+    in the collection.<br /><br />
+
+    To get the data displayed in the format I have it now, I used
+    <strong>Jinja2 Templating</strong>, which helps to invoke functions like
+    <em>for loops</em> from Python in my HTML file. I then create a CSS style
+    for how I want one of the results to look, and the Python loop loads each
+    item in the collection using the same style.<br /><br />
+
+    If you’d like to view the data for a particular student using the API alone,
+    use the following format in your URL bar, and it will produce the output in
+    a JSON file format on browser.<br /><br />
+
+    Example: "http://www.mywebsite.com/api/v1.0/student/[student ID]"
   </p>
-  <br />
-  <p>Example: "http://www.mywebsite.com/api/v1.0/student/[student ID]"</p>
 </div>
 <br />
 <div>{% include 'partials/database_nav.html' %}</div>

@@ -3,25 +3,22 @@
   <h1>Text Analyser Function</h1>
   <br />
   <p>
-    Enter a piece of text into the form box below. This will then use a Python
-    function to go on ahead and create a list of words with all the words inside
-    the passage. It will then use some functions to derive different information
-    like total word count, lexical word density, frequent words, and etc.
-  </p>
-  <br />
-  <p>
-    I had to use Google to tell me what 'Lexical Density' meant. Lexical density
-    is the calculation of unique words in the text against the total words in
-    the text. The term 'lexical' refers to the words used in a text, and lexical
-    density measures the variety of those words compared to the total word
-    count.
-  </p>
-  <br />
-  <p>
+    This function was built entirely using Python and connected to the website
+    using <strong>Jinja2 Templating</strong>. Using the form box below, you can
+    have a piece of text analysed for the type of data it holds. The Python
+    function calculates how many words there are, the frequency of each word,
+    and the lexical density (unique words) of the text entered.<br /><br />
+
     A <strong>High Lexical Density</strong> indicates the use of a wide variety
-    of words and a <strong>Low Lexical Density</strong> indicates the use of
+    of words, and a <strong>Low Lexical Density</strong> means high use of
     repeated words or phrases. The more vocabulary you know, the more you
-    improve your ability to write with a higher lexical density.
+    improve your ability to write with a higher lexical density.<br /><br />
+
+    While this function seems intriguing, it’s better to understand the
+    different applications of this type of method. In this function, I haven’t
+    used modules like <strong>Regular Expressions</strong>, which would make the
+    analysis more accurate and perform complex operations like identifying a
+    sequence of numbers or characters.
   </p>
   <div class="form_div">
     <form method="POST">
