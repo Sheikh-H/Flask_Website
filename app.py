@@ -55,7 +55,7 @@ def mongodb_home():
     title = "Using APIs"
     return render_template('/pages/database_home.html', title = title)
 
-@app.route('/api/v1.0/testimonial/<testimonial_id>', methods=['GET'])
+@app.route('/api/v1.0/testimonials/<testimonial_id>', methods=['GET'])
 def testimonial_api(testimonial_id):
     testimonial = feedbacks_tbl.find_one({'_id':ObjectId(testimonial_id)})
     testimonial['_id'] = str(testimonial['_id'])
