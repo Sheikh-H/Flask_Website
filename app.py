@@ -101,8 +101,8 @@ def add_student():
             'skills': skills,
             'created_at':created_at,
         }
-        result = students_tbl.insert_one(student)
-        redirect(url_for('/student_database', student_id=str(result.inserted_id)))
+        students_tbl.insert_one(student)
+        redirect(url_for('student_database'))
     return render_template('/pages/add_new_student.html', title = title)
 
 @app.route('/delete_student/<student_id>', methods = ['GET', 'DELETE'])

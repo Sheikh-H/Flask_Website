@@ -78,7 +78,7 @@ First-Flask-Website/
 <h2>📸 Optional Preview</h2>
 
 <p align="center">
-  <img src="/static/img/preview.png" alt="Application Preview" width="600">
+  <img src="/static/img/preview.png" alt="Application Preview" width="700">
 </p>
 
 ---
