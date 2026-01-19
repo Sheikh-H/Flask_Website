@@ -7,7 +7,9 @@
   It was more about learning to use APIs and NoSQL databases than anything. I would say that I will now be focusing more on creating similar web applications.
   As this is not a build hosted on a live platform, because I don't want to have the site and database really being used unless required, you would have to download the files and use them to see its functionalities. 
   <br><br>
-  I do advise that you refrain from downloading any content from the web unless you have some anti-virus and other security software to check the files before use. 
+  I do advise that you refrain from downloading any content from the web unless you have some anti-virus and other security software to check the files before use.
+	<br><br>
+	This is the second edition of my website, as I was displeased with my first attempt. Everything was messy and unorganised, which isn't really usual for me. 
 </p>
 
 ---
