@@ -59,12 +59,16 @@ def mongodb_home():
 def testimonial_api(testimonial_id):
     testimonial = feedbacks_tbl.find_one({'_id':ObjectId(testimonial_id)})
     testimonial['_id'] = str(testimonial['_id'])
+    if not testimonial:
+        return jsonify({'error':'Testimonial not found'}), 404
     return jsonify(testimonial)
 
 @app.route('/api/v1.0/student/<student_id>', methods=['GET'])
 def student_api(student_id):
     student = students_tbl.find_one({'_id':ObjectId(student_id)})
     student['_id'] = str(student['_id'])
+    if not student:
+        return jsonify({'error':'Student not found'}), 404
     return jsonify(student)
 
 @app.route('/api/v1.0/student', methods=['GET'])
