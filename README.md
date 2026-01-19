@@ -1,4 +1,4 @@
-<h1 align="center">📲 First Flask Website</h1>
+<h1 align="center">📲 Flask Website</h1>
 
 <p align="center">
   I participated in the <a href = 'https://github.com/Asabeneh/30-Days-Of-Python'>30 Days Of Python Course by Asabeneh Yetayeh</a>, and this was what I built by the end of it all.
@@ -30,28 +30,46 @@
 <h2>📁 Folder Structure</h2>
 
 <pre>
-First-Flask-Website/
-├── app.py                          
+Flask-Website/
+├── app.py      
+├── python_functions/  
+|     ├── __init__.py
+|     ├── review_dashboard_function.py  
+|     └── text_analyser_functions.py            
 ├── templates/
-      ├─ add_student.html
-      ├─ analyser.html
-      ├─ confirm_add.html
-      ├─ database_navbar.html
-      ├─ footer.html
-      ├─ header.html
-      ├─ home.html
-      ├─ layout.html
-      ├─ navbar.html
-      └── update_student.html
+|      ├── layout.html
+|      ├── partials/
+|      |      ├── footer.html
+|      |      ├── main_nav.ico
+|      |      └── database_nav.ico
+|      └── pages
+|            ├── about.html
+|            ├── add_new_student.html
+|            ├── database_home.html
+|            ├── home.html
+|            ├── leave_a_review.html
+|            ├── review_dashboard.html
+|            ├── student_database_home.html
+|            ├── testimonial_database_home.html
+|            ├── text_analyser.html
+|            └──update_student.html
 ├── static/
-      ├─ img/
-          ├─ favicon.ico
-          └─ Sheikh_Logo_3.png
-      └─ css/
-          └─ main.css
-├── README.md                     
-├── LICENSE                        
-└── Preview.png                    
+|      ├─ img/
+|      |   ├─ favicon.ico
+|      |   ├─ female.png
+|      |   ├─ graph_chart.png
+|      |   ├─ male.png
+|      |   ├─ male2.png
+|      |   ├─ pie_chart.png
+|      |   ├─ preview.png
+|      |   ├─ student.png
+|      |   └─ Sheikh_Logo_3.png
+|      └─ css/
+|          └─ main.css
+├── README.md   
+├── requirements.txt                   
+└── LICENSE                        
+* Yes, my file naming conventions suck...*
 </pre>
 
 ---
@@ -61,10 +79,10 @@ First-Flask-Website/
 <ol>
   <li>Ensure you have <b>Python 3.13</b> installed on your system.</li>
   <li>Download or clone this repository:
-    <pre><code>git clone https://github.com/Sheikh-H/First-Flask-Website.git</code></pre>
+    <pre><code>git clone https://github.com/Sheikh-H/Flask-Website.git</code></pre>
   </li>
   <li>Navigate into the project folder:
-    <pre><code>cd First-Flask-Website</code></pre>
+    <pre><code>cd Flask-Website</code></pre>
   </li>
   <li>Run the script:
     <pre><code>python app.py</code></pre>
