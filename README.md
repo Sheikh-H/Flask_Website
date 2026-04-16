@@ -89,6 +89,8 @@ Flask-Website/
   </li>
   <li>Go to your browser and type <code>localhost:5000/</code></li>
   <li>View the website as a development environment and let me know your thoughts!</li>
+	<li>Alternatively, view the live site here:
+	<pre><code>https://flask-website-xfss.onrender.com/</code></pre></li>
 </ol>
 
 ---
